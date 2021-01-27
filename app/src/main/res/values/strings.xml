@@ -6,4 +6,8 @@
     <string name="edit">This is an editText</string>
     <string name="btn">This is a button</string>
     <string name="cbox">This is a checkbox</string>
+
+    <string name="sendEmail">Send an email</string>
+    <string name="viewURL">Go to a URL</string>
+    <string name="call">Make a phone call</string>
 </resources>
