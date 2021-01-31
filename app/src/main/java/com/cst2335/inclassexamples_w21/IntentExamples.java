@@ -7,12 +7,12 @@ import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class PrebuiltIntentExamples extends AppCompatActivity {
+public class IntentExamples extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_prebuilt_intent_examples);
+        setContentView(R.layout.activity_intent_examples);
 
         //This shows how to use Android's default email app to send an email:
         Button temp = findViewById(R.id.sendEmailExample);
@@ -42,7 +42,7 @@ public class PrebuiltIntentExamples extends AppCompatActivity {
         temp.setOnClickListener( click -> {
 
             Intent i = new Intent(Intent.ACTION_DIAL);
-            i.setData( Uri.parse("tel:" + "6137274723") );
+            i.setData( Uri.parse("tel:" + "6137274700") );
             startActivity(i);
 
         });
