@@ -3,10 +3,13 @@ package com.cst2335.inclassexamples_w21;
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Button;
 import android.widget.TextView;
 
 public class SecondActivity extends AppCompatActivity {
+
+    private final String TAG = "SecondActivity";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,15 +30,22 @@ public class SecondActivity extends AppCompatActivity {
         TextView typed = findViewById(R.id.typedField);
         typed.setText( "You typed in page 1:"+ whatUserTyped );
 
-        Button backButton = findViewById(R.id.backButton);
-        backButton.setOnClickListener( clk ->
+        Button bButton = findViewById(R.id.backButton);
+        bButton.setOnClickListener( clk ->
         {
             setResult(50, null); //a unique number that can only be 50 if you clicked on the back button
             finish();
         });
 
-        Button save = findViewById(R.id.saveButton);
-        save.setOnClickListener( bt -> {
+        Button fButton = findViewById(R.id.finishButton);
+        fButton.setOnClickListener( clk ->
+        {
+            setResult(RESULT_CANCELED, null);
+            finish();
+        });
+
+        Button sButton = findViewById(R.id.saveButton);
+        sButton.setOnClickListener( bt -> {
             startActivity(new Intent(SecondActivity.this, SharedPreferencesExample.class));
         });
     }

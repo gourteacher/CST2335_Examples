@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -12,6 +13,8 @@ import android.os.PersistableBundle;
 
 
 public class FirstActivity extends AppCompatActivity {
+
+    private final String TAG = "FirstActivity";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +48,8 @@ public class FirstActivity extends AppCompatActivity {
     @Override
     public void onCreate (@Nullable Bundle savedInstanceState, @Nullable PersistableBundle persistentState){
         super.onCreate(savedInstanceState, persistentState);
+        Toast.makeText( this, "Activity Created!",
+                Toast.LENGTH_SHORT ).show();
     }
 
     @Override
@@ -52,15 +57,15 @@ public class FirstActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == 30) //you went to page 2
         {
-            if (resultCode == 50) //you hit the finish button
+            if (resultCode == 50)
             {
-                Toast.makeText(this, "You came back from page 3 by hitting the finish button",
+                Toast.makeText(this, "You came back from page 2 by hitting the back button",
                         Toast.LENGTH_LONG).show();
             }
-            else if (resultCode == RESULT_CANCELED) //you hit the back button
+            else if (resultCode == RESULT_CANCELED)
             {
-                   Toast.makeText(this, "You came back from page 3 by hitting the back button",
-                                Toast.LENGTH_SHORT).show();
+                   Toast.makeText(this, "You came back from page 2 by hitting the finish button",
+                                Toast.LENGTH_LONG).show();
             }
         }
     }
