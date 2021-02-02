@@ -1,17 +1,15 @@
 package com.cst2335.inclassexamples_w21;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageButton;
-import android.widget.TextView;
 import android.widget.Toast;
+import android.os.PersistableBundle;
 
-import com.google.android.material.snackbar.Snackbar;
 
 public class FirstActivity extends AppCompatActivity {
 
@@ -19,32 +17,51 @@ public class FirstActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         //Your program starts here
         super.onCreate(savedInstanceState);
-        // setContentView loads objects onto the screen.
-        // Before this function, the screen is empty.
         setContentView(R.layout.activity_main);
-        Button secondButton = findViewById(R.id.buttonToSecond);
 
-        //This creates a transition to load SecontActivity.java:
-        Intent nextPage = new Intent(this, SecondActivity.class);
+        EditText editText = findViewById(R.id.userInput);
 
-        //when you click the button, start the next activity:
-        secondButton.setOnClickListener( click -> startActivity( nextPage ));
+        //use a Lambda function to set a click listener
+        Button page2Button = (Button) findViewById(R.id.firstButton);
+        if (page2Button != null) {
+            page2Button.setOnClickListener(clk -> {
+                Intent goToPage2 = new Intent(FirstActivity.this, SecondActivity.class);
+
+                goToPage2.putExtra("name", "me");
+                goToPage2.putExtra("age", 20);
+                goToPage2.putExtra("typed", editText.getText().toString());
+
+                startActivityForResult(goToPage2, 30);
+            });
+        }
+
+            Button saveButton = findViewById(R.id.saveButton);
+            if (saveButton != null)
+                saveButton.setOnClickListener(v -> {
+
+                });
     }
 
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+    public void onCreate (@Nullable Bundle savedInstanceState, @Nullable PersistableBundle persistentState){
+        super.onCreate(savedInstanceState, persistentState);
+    }
+
+    @Override
+    protected void onActivityResult ( int requestCode, int resultCode, Intent data){
         super.onActivityResult(requestCode, resultCode, data);
-
-
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-    }
-
-    @Override
-    protected void onStart() {
-        super.onStart();
+        if (requestCode == 30) //you went to page 2
+        {
+            if (resultCode == 50) //you hit the finish button
+            {
+                Toast.makeText(this, "You came back from page 3 by hitting the finish button",
+                        Toast.LENGTH_LONG).show();
+            }
+            else if (resultCode == RESULT_CANCELED) //you hit the back button
+            {
+                   Toast.makeText(this, "You came back from page 3 by hitting the back button",
+                                Toast.LENGTH_SHORT).show();
+            }
+        }
     }
 }
