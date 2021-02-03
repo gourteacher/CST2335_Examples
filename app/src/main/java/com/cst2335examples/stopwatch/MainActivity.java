@@ -11,15 +11,15 @@ import android.os.SystemClock;
 
 public class MainActivity extends AppCompatActivity {
 
-    final String CAT = "MainActivity";
+    private static final String CAT = "MainActivity";
 
     Boolean isRunning = false;
     long offset = 0;
     Chronometer stopwatch;
 
-    final String OFFSET_KEY = "offset";
-    final String RUNNING_KEY = "running";
-    final String BASE_KEY = "base";
+    private static final String OFFSET_KEY = "offset";
+    private static final String RUNNING_KEY = "running";
+    private static final String BASE_KEY = "base";
 
 
     @Override
