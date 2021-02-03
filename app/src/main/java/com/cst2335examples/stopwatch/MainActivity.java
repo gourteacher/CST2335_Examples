@@ -32,7 +32,6 @@ public class MainActivity extends AppCompatActivity {
 
         isRunning = false;
         offset = 0;
-        stopwatch =  findViewById(R.id.stopwatch);
 
         if (savedInstanceState != null) {
             offset = savedInstanceState.getLong(OFFSET_KEY);
@@ -43,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
                 setBaseTime();
             }
         }
+        stopwatch =  findViewById(R.id.stopwatch);
 
         Button startButton = findViewById(R.id.startButton);
         startButton.setOnClickListener ( clk ->  {
