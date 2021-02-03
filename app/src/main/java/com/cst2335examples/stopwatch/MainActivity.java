@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.widget.Chronometer;
 import android.os.SystemClock;
+import android.util.Log;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -25,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        System.out.println( CAT + "onCreate()");
+        Log.i( CAT , "onCreate()");
 
         setContentView(R.layout.activity_main);
 
@@ -91,30 +92,30 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        System.out.println( CAT + "onStart()");
+        Log.i( CAT ,  "onStart()");
     }
 
     @Override
     protected void onStop() {
         super.onStop();
-        System.out.println( CAT + "onStop()");
+        Log.i( CAT ,  "onStop()");
     }
 
     @Override
     protected void onPause() {
         super.onPause();
-        System.out.println( CAT + "onPause()");
+        Log.i( CAT ,  "onPause()");
     }
 
     @Override
     protected void onRestart() {
         super.onRestart();
-        System.out.println( CAT + "onRestart");
+        Log.i( CAT , "onRestart");
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        System.out.println( CAT + "onDestroy()");
+        Log.i( CAT , "onDestroy()");
     }
 }
