@@ -10,7 +10,7 @@ import android.os.SystemClock;
 
 public class MainActivity extends AppCompatActivity {
 
-    final String CAT = "MainActivity";
+    final String TAG = "MainActivity";
 
     Boolean isRunning = false;
     long offset = 0;
@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        System.out.println( CAT + "onCreate()");
+        System.out.println( TAG + "onCreate()");
 
         setContentView(R.layout.activity_main);
 
@@ -62,30 +62,30 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        System.out.println( CAT + "onStart()");
+        System.out.println( TAG + "onStart()");
     }
 
     @Override
     protected void onStop() {
         super.onStop();
-        System.out.println( CAT + "onStop()");
+        System.out.println( TAG + "onStop()");
     }
 
     @Override
     protected void onPause() {
         super.onPause();
-        System.out.println( CAT + "onPause()");
+        System.out.println( TAG + "onPause()");
     }
 
     @Override
     protected void onRestart() {
         super.onRestart();
-        System.out.println( CAT + "onRestart");
+        System.out.println( TAG + "onRestart");
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        System.out.println( CAT + "onDestroy()");
+        System.out.println( TAG + "onDestroy()");
     }
 }
