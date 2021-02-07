@@ -17,8 +17,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 
 public class FirstActivity extends AppCompatActivity {
-    private ArrayList<String> elements = new ArrayList<>( Arrays.asList( "One", "Two", "Three" ) );
-
+    private ArrayList<String> elements = new ArrayList<>( Arrays.asList() );
+    MyListAdapter myAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,14 +29,37 @@ public class FirstActivity extends AppCompatActivity {
         // Before this function, the screen is empty.
         setContentView(R.layout.activity_main);
 
-
+        ListView myList = findViewById(R.id.theListView);
+        myList.setAdapter( myAdapter = new MyListAdapter());
 
         Button addButton = findViewById(R.id.addButton);
         addButton.setOnClickListener( click -> {
             elements.add("Hi");
         });
-
     }
 
+    private class MyListAdapter extends BaseAdapter {
 
+        public int getCount() { return elements.size();}
+
+        public Object getItem(int position) { return "This is row " + position; }
+
+        public long getItemId(int position) { return (long) position; }
+
+        public View getView(int position, View old, ViewGroup parent)
+        {
+            LayoutInflater inflater = getLayoutInflater();
+
+            //make a new row:
+            View newView = inflater.inflate(R.layout.row_layout, parent, false);
+
+            //set what the text should be for this row:
+            TextView tView = newView.findViewById(R.id.textGoesHere);
+            //Button tView = newView.findViewById(R.id.addButton);
+            tView.setText( getItem(position).toString() );
+
+            //return it to be put in the table
+            return newView;
+        }
+    }
 }
