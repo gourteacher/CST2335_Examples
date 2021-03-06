@@ -1,4 +1,4 @@
 <resources>
-    <string name="app_name">InClassExamples_Winter2021</string>
-    <string name="insert">Insert</string>
+    <string name="app_name">Examples_Winter2021</string>
+    <string name="hello">AsyncTask App Started</string>
 </resources>
