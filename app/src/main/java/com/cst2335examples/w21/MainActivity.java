@@ -4,48 +4,37 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
-
-
-import java.io.InputStream;
-import java.net.HttpURLConnection;
-import java.net.URL;
+import java.io.IOException;
 
 public class MainActivity extends AppCompatActivity {
+
+    private static final String TAG = "MainActivity";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        MyHTTPRequest req = new MyHTTPRequest();
-        req.execute("http://torunski.ca/CST2335_XML.xml");  //Type 1
+        new MyHTTPRequest().execute();
+
+
     }
 
 
     //Type1     Type2   Type3
-    private class MyHTTPRequest extends AsyncTask< String, Integer, String>
+    private class MyHTTPRequest extends AsyncTask< Void,Void,Void>
     {
         //Type3                Type1
-        public String doInBackground(String ... args)
+        public Void doInBackground(Void ... args)
         {
             try {
-
-                //create a URL object of what server to contact:
-                URL url = new URL(args[0]);
-
-                //open the connection
-                HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
-
-                //wait for data:
-                InputStream response = urlConnection.getInputStream();
-
+                String result = new UrlFetcher()
+                        .getUrlString("https://www.google.com");
+                Log.i(TAG, "Fetched contents of URL: " + result);
+            } catch (IOException ioe) {
+                Log.e(TAG, "Failed to fetch URL: ", ioe);
             }
-            catch (Exception e)
-            {
-
-            }
-
-            return "Done";
+            return null;
         }
 
         //Type 2
@@ -60,3 +49,4 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 }
+
