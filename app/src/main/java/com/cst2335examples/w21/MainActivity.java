@@ -40,17 +40,13 @@ public class MainActivity extends AppCompatActivity {
                 //wait for data:
                 InputStream response = urlConnection.getInputStream();
 
-
-
-                //From part 3: slide 19
+                //From part 3
                 XmlPullParserFactory factory = XmlPullParserFactory.newInstance();
                 factory.setNamespaceAware(false);
                 XmlPullParser xpp = factory.newPullParser();
                 xpp.setInput( response  , "UTF-8");
 
-
-
-                //From part 3, slide 20
+                //From part 3,
                 String parameter = null;
 
                 int eventType = xpp.getEventType(); //The parser is currently at START_DOCUMENT
