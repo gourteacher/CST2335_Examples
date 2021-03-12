@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">Examples_Winter2021</string>
     <string name="hello">AsyncTask App Started</string>
+    <string name="insert">Insert</string>
 </resources>
