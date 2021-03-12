@@ -57,37 +57,7 @@ public class UrlFetcher {
         return new String(getUrlBytes(urlSpec));
     }
 
-    public String xxx(String urlSpec) throws IOException {
 
-        String result = null;
-        try {
-
-            // Connect to the server:
-            URL url = new URL(urlSpec);
-            HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
-            InputStream inStream = urlConnection.getInputStream();
-
-            //Set up the JSON object parser:
-            // json is UTF-8 by default
-            BufferedReader reader = new BufferedReader(new InputStreamReader(inStream, "UTF-8"), 8);
-            StringBuilder sb = new StringBuilder();
-
-            String line = null;
-            while ((line = reader.readLine()) != null)
-            {
-                sb.append(line + "\n");
-            }
-            result = sb.toString();
-        }
-
-        catch(IOException ioe)
-        {
-            result = "IO Exception. Is the Wifi connected?";
-        }
-        //What is returned here will be passed as a parameter to onPostExecute:
-        return result;
-
-    }
     public String fetchItems(String url, String cur) {
 
         String res = null;
