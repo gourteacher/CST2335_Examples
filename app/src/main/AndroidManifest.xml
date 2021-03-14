@@ -17,6 +17,8 @@
             </intent-filter>
         </activity>
 
+        <activity android:name=".ShowItemActivity" android:label="@string/app_name" />
+
     </application>
 
 </manifest>

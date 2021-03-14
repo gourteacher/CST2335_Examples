@@ -10,6 +10,8 @@ import android.widget.ArrayAdapter;
 import android.content.Context;
 import android.widget.TextView;
 
+import android.content.Intent;
+import android.content.res.Configuration;
 
 public class Fragment1Activity extends Fragment {
 
@@ -29,15 +31,25 @@ public class Fragment1Activity extends Fragment {
 
         fruitsList.setAdapter(arrayAdpt);
 
-        fruitsList.setOnItemClickListener( (parent, v, position, id)  ->{
+        fruitsList.setOnItemClickListener( (parent, v, position, id)  -> {
 
-            TextView selectedOpt = getActivity().findViewById(R.id.selectedopt);
+            if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) {
 
-            selectedOpt.setText("You have selected "+((TextView) v).getText().toString());
+                TextView selectedOpt = (TextView) getActivity().findViewById(R.id.selectedopt);
+
+                selectedOpt.setText("You have selected " + ((TextView) v).getText().toString());
+
+            } else {
+
+                Intent intent = new Intent(getActivity().getApplicationContext(), ShowItemActivity.class);
+
+                intent.putExtra("item", ((TextView) v).getText().toString());
+
+                startActivity(intent);
+
+            }
         });
-
         return vw;
-
     }
 
 }

@@ -5,7 +5,7 @@
 
     android:layout_height="match_parent"
 
-    android:orientation="horizontal" >
+    android:orientation="horizontal">
 
     <fragment
 
@@ -19,5 +19,16 @@
 
         android:layout_height="match_parent" />
 
+    <fragment
+
+        android:name="com.cst2335examples.w21.Fragment2Activity"
+
+        android:id="@+id/fragment_2"
+
+        android:layout_weight="0"
+
+        android:layout_width="wrap_content"
+
+        android:layout_height="match_parent" />
 
 </LinearLayout>
