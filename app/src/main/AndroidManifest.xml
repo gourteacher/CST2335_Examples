@@ -1,5 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.cst2335examples.w21">
+    package="com.cst2335.inclassexamples_w21">
 
     <application
         android:allowBackup="true"
@@ -9,16 +10,16 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.InClassExamples_W21">
 
-        <activity android:name=".ContactListActivity" >
+        <!-- This activity is part of your application: -->
+
+        <activity android:name=".FragmentExample" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <activity android:name=".ContactActivity" />
-
+        <activity android:name=".EmptyActivity"/>
     </application>
 
 </manifest>
