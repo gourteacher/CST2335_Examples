@@ -7,6 +7,7 @@ import android.view.MenuItem;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SearchView;
 import androidx.appcompat.widget.Toolbar;
 
 public class MenuExample extends AppCompatActivity {
@@ -17,7 +18,7 @@ public class MenuExample extends AppCompatActivity {
             setContentView(R.layout.activity_menu_example);
 
             //This gets the toolbar from the layout:
-            Toolbar tBar = (Toolbar)findViewById(R.id.toolbar);
+            Toolbar tBar = findViewById(R.id.toolbar);
 
             //This loads the toolbar, which calls onCreateOptionsMenu below:
             setSupportActionBar(tBar);
@@ -31,8 +32,23 @@ public class MenuExample extends AppCompatActivity {
             MenuInflater inflater = getMenuInflater();
             inflater.inflate(R.menu.example_menu, menu);
 
+            MenuItem searchItem = menu.findItem(R.id.search_item);
+            SearchView sView = (SearchView)searchItem.getActionView();
+            sView.setOnQueryTextListener( new SearchView.OnQueryTextListener() {
+                @Override
+                public boolean onQueryTextSubmit(String q) {
+                    return false;
+                }
+
+                @Override
+                public boolean onQueryTextChange(String newText) {
+                    return false;
+                }
+            });
+
             return true;
         }
+
 
         @Override
         public boolean onOptionsItemSelected(MenuItem item) {
@@ -59,5 +75,6 @@ public class MenuExample extends AppCompatActivity {
         }
 
     }
+
 
 
