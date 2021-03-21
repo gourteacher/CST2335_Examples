@@ -18,10 +18,10 @@
         android:title="@string/search"/>    <!-- This uses showAsAction=always, so look at icon= parameter -->
 
 
-    <item android:id="@+id/help_item"
+    <item android:id="@+id/some_item"
         android:icon="@drawable/global"
-        android:title="Look at globe"
-        app:showAsAction="never"
+        android:title="some activity"
+        app:showAsAction="always"
         android:orderInCategory="400"/> <!-- This uses showAsAction=never, so look at title= parameter -->
 
     <item android:id="@+id/mail"

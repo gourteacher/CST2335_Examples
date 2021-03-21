@@ -72,9 +72,11 @@ public class MenuExample extends AppCompatActivity {
                 case R.id.search_item:
                     message = "You clicked on the search";
                     break;
-                case R.id.help_item:
-                    message = "You clicked on help";
-                    break;
+                case R.id.some_item:
+                    Intent i = new Intent(this, SomeActivity.class);
+                    startActivity(i);
+                    return true;
+
                 case R.id.mail:
                     message = "You clicked on mail";
                     break;
