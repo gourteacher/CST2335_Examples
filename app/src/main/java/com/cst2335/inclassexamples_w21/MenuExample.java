@@ -27,7 +27,6 @@ public class MenuExample extends AppCompatActivity implements NavigationView.OnN
         Toolbar tBar = (Toolbar)findViewById(R.id.toolbar);
         setSupportActionBar(tBar);
 
-
         //For NavigationDrawer:
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this,
@@ -39,7 +38,6 @@ public class MenuExample extends AppCompatActivity implements NavigationView.OnN
         navigationView.setNavigationItemSelectedListener(this);
     }
 
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu items for use in the action bar
@@ -47,7 +45,7 @@ public class MenuExample extends AppCompatActivity implements NavigationView.OnN
         inflater.inflate(R.menu.example_menu, menu);
 
 
-	    /* slide 15 material:
+	    /* toolbar :
 	    MenuItem searchItem = menu.findItem(R.id.search_item);
         SearchView sView = (SearchView)searchItem.getActionView();
         sView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
