@@ -1,5 +1,6 @@
 package com.cst2335.inclassexamples_w21;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -8,9 +9,13 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SearchView;
+import androidx.appcompat.widget.ShareActionProvider;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.view.MenuItemCompat;
 
 public class MenuExample extends AppCompatActivity {
+
+    private ShareActionProvider shareActionProvider;
 
         @Override
         protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +36,10 @@ public class MenuExample extends AppCompatActivity {
             // Inflate the menu items for use in the action bar
             MenuInflater inflater = getMenuInflater();
             inflater.inflate(R.menu.example_menu, menu);
+
+            MenuItem shareItem =  menu.findItem(R.id.share);
+            shareActionProvider = (ShareActionProvider) MenuItemCompat.getActionProvider(shareItem);
+            setIntent("Example share text");
 
             MenuItem searchItem = menu.findItem(R.id.search_item);
             SearchView sView = (SearchView)searchItem.getActionView();
@@ -57,8 +66,8 @@ public class MenuExample extends AppCompatActivity {
             switch(item.getItemId())
             {
                 //what to do when the menu item is selected:
-                case R.id.item1:
-                    message = "You clicked item 1";
+                case R.id.share:
+                    message = "You clicked share";
                     break;
                 case R.id.search_item:
                     message = "You clicked on the search";
@@ -72,6 +81,14 @@ public class MenuExample extends AppCompatActivity {
             }
             Toast.makeText(this, message, Toast.LENGTH_LONG).show();
             return true;
+        }
+
+        private void setIntent(String t) {
+            Intent i = new Intent(Intent.ACTION_SEND);
+            i.setType("text/plain");
+            i.putExtra(Intent.EXTRA_TEXT, t);
+            shareActionProvider.setShareIntent(i);
+
         }
 
     }

@@ -3,11 +3,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
 
-    <item android:id="@+id/item1"
-        android:title="@string/Name"
-        android:icon="@drawable/freeicon"
+    <item android:id="@+id/share"
+        android:title="@string/share"
         android:orderInCategory="100"
-        app:showAsAction="always"/>  <!-- This uses showAsAction=always, so look at icon= parameter -->
+        app:showAsAction="always"
+        app:actionProviderClass="androidx.appcompat.widget.ShareActionProvider" />  <!-- This uses showAsAction=always, so look at icon= parameter -->
 
 
     <item android:id="@+id/search_item"
