@@ -8,19 +8,10 @@ import static org.junit.Assert.assertTrue;
 
 public class EmailValidatorTest {
 
-    // Logger for this class.
-    private static final String TAG = "EmailValidatorTest";
-
     @Test
     public void emailValidator_CorrectEmailSimple_ReturnsTrue() {
-        try {
-            assertTrue(EmailValidator.isValidEmail("name@email.com"));
-        }
-        catch (Exception e) {
-            Log.w( TAG ,  e.getMessage());
-        }
+        assertTrue(EmailValidator.isValidEmail("name@email.com"));
     }
-
 
     @Test
     public void emailValidator_CorrectEmailSubDomain_ReturnsTrue() {
